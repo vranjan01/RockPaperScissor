@@ -2,15 +2,22 @@ let userChoice
 function storeValue(buttonElement)
 {
     userChoice = buttonElement;
-    
+
+let computerChoice = getRndInteger(0,2)
+let choice= ["rock","scissor","paper"]
+let computerChoiceStr = choice[computerChoice]
+
+let result = VSComputer(userChoice, computerChoiceStr)
+document.getElementById("res").innerHTML =  "You chose: " + userChoice +
+        "<br>Computer chose: " + computerChoiceStr +
+        "<br><b>" + result + "</b>";
 }
-let computerChoice = getRndInteger(1,3)
+
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
-let choice= ["rock","scissors","paper"]
-let computerChoiceStr = choice[computerChoice]
-function VSComputer()
+
+function VSComputer(userChoice, computerChoiceStr)
 {
 if(userChoice === computerChoiceStr)
 {
