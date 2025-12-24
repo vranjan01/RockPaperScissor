@@ -20,7 +20,7 @@ h2{
 }
 button{
     background-color: #FFC93C;
-    
+    position: relative;
 }
 footer {
   position: fixed;
