@@ -1,4 +1,9 @@
-//let userChoice = String
+let userChoice
+function storeValue(buttonElement)
+{
+    userChoice = buttonElement;
+    
+}
 let computerChoice = getRndInteger(1,3)
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
