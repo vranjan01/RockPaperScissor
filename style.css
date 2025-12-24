@@ -1,11 +1,33 @@
+nav{
+    position: fixed;
+    width: 100%;
+    background-color: #006769;
+    color: white;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
 body{
+    position: relative;
     background-color: #FFFBE6;
+    align-items: center;
+    padding-top: 70px;
+    text-align: center;
 }
 h2{
     text-align: center;
-    color: #132440;
+    
 }
 button{
     background-color: #FFC93C;
     
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #006769;
+  color: white;
+  text-align: center;
 }
