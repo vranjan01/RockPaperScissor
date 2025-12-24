@@ -5,7 +5,7 @@ function getRndInteger(min, max) {
 }
 let choice= ["rock","scissors","paper"]
 let computerChoiceStr = choice[computerChoice]
-function V/SComputer()
+function VSComputer()
 {
 if(userChoice === computerChoiceStr)
 {
