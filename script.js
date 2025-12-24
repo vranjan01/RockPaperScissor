@@ -5,7 +5,8 @@ function getRndInteger(min, max) {
 }
 let choice= ["rock","scissors","paper"]
 let computerChoiceStr = choice[computerChoice]
-
+function V/SComputer()
+{
 if(userChoice === computerChoiceStr)
 {
     return "It is a Tie!"
@@ -15,3 +16,4 @@ else if( (userChoice == "rock" && computerChoiceStr == "scissor") || (userChoice
 }
 else
     return "Computer Wins!"
+}
