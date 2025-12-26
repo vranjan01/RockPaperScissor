@@ -8,8 +8,8 @@ let choice= ["rock","scissor","paper"]
 let computerChoiceStr = choice[computerChoice]
 
 let result = VSComputer(userChoice, computerChoiceStr)
-document.getElementById("res").innerHTML =  "You chose: " + userChoice +
-        "<br>Computer chose: " + computerChoiceStr +
+document.getElementById("res").innerHTML =  "You chose: " + userChoice.toUpperCase() +
+        "<br>Computer chose: " + computerChoiceStr.toUpperCase() +
         "<br><b>" + result + "</b>";
 }
 
