@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player vs Player</title>
+</head>
+<body>
+     <nav> 
+    <h2>Rockkk Paper & Scissorsss</h2>
+    </nav>
+
+<h2>Player vs Player</h2>
+<h3 id="turn">Player 1's Turn</h3>
+
+<div>
+    <button id = "b1" onclick="makeChoice('rock')">Rock</button>
+    <button id = "b2" onclick="makeChoice('paper')">Paper</button>
+    <button id = "b3" onclick="makeChoice('scissor')">Scissor</button>
+</div>
+<p id="moves">Moves Left: 10</p>
+<p id="p1-score">Player 1: 0</p>
+<p id="p2-score">Player 2: 0</p>
+<p id="result"></p>
+<div class="final-result"></div>
+
+<button class="reload" style="display:none;" onclick="restartGame()">Restart</button>
+
+
+
+<script src="pvp.js"></script>
+</body>
+<footer aria-posinset="end">
+        <p> Made with &#10084; by Vaishnavi, Riya and Devashree </p>
+    </footer>
+
+    <style>
+nav{
+    position: fixed;
+    width: 100%;
+    background-color: #006769;
+    color: white;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+body{
+    background-color: #fffbe6;
+    text-align: center;
+    color: #0c005a;
+    padding: 70px;
+}
+#res{
+    text-align: center;
+    position: relative;
+}
+.parent-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center; 
+  align-items: center;     
+  padding-block: initial;
+  
+}   
+#b1{
+background-color: #c37857;
+margin-right: 10px;
+margin-left: 10px;
+}
+
+#b2{
+background-color: #dbd8e3;
+    margin-right: 10px;
+margin-left: 10px;
+}
+#b3{
+    background-color: #66bfbf;
+    margin-right: 10px;
+margin-left: 10px;
+}
+button{
+    text-align: center;
+    color: black;
+    padding: 1%; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    font-weight: bold;
+
+}
+button:hover{
+    color: #0c005a;
+    transform: scale(1.07);
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #006769;
+  color: white;
+  text-align: center;
+}
+</style>
+</html>
