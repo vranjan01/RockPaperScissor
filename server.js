@@ -13,6 +13,9 @@ let players = {};
 io.on("connection", (socket) => {
     console.log("Player connected:", socket.id);
 
+    players[socket.id] = null;
+    io.emit("players", Object.keys(players).length);
+
     socket.on("choice", (choice) => {
         players[socket.id] = choice;
 
