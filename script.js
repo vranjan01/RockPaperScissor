@@ -6,6 +6,7 @@ let moves = 0;
 function storeValue(choice) {
     userChoice = choice;
 
+
     if (moves >= 10) return;
 
     moves++;
@@ -33,6 +34,11 @@ function storeValue(choice) {
     if (moves === 10) {
         gameOver();
     }
+
+let result = VSComputer(userChoice, computerChoiceStr)
+document.getElementById("res").innerHTML =  "You chose: " + userChoice.toUpperCase() +
+        "<br>Computer chose: " + computerChoiceStr.toUpperCase() +
+        "<br><b>" + result + "</b>";
 }
 
 function getRndInteger(min, max) {
