@@ -1,43 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    
+    <title>Online Multiplayer</title>
 </head>
 <body>
-    <nav> 
+
+<h2>Rock Paper Scissors – Online</h2>
+<nav> 
     <h2>Rockkk Paper & Scissorsss</h2>
-    </nav>
+</nav>
 
-    <h2> You V/S Computer </h2>
-    <h3> Make your Choice </h3>
-    <p id = "res"></p> 
+<button id = "b1" onclick="sendChoice('rock')">Rock</button>
+<button id = "b2" onclick="sendChoice('paper')">Paper</button>
+<button id = "b3" onclick="sendChoice('scissor')">Scissor</button>
 
-    <div class="parent-container">
-        
-    <button id="b1" onclick="storeValue('rock')">Rock</button>
-    <br>
-    <button id="b2" onclick="storeValue('paper')">Paper</button>
-    <br>
-    <button id="b3" onclick="storeValue('scissor')">Scissors</button>
-    </div>
-    <p id="moves">Moves Left: 10</p>
-    <p id="p-score">Player: 0</p>
-    <p id="c-score">Computer: 0</p>
+<p id="res">Waiting for opponent...</p>
 
-    
+<!-- Socket.IO first -->
+<script src="/socket.io/socket.io.js"></script>
 
+<!-- Online multiplayer JS -->
+<script src="multiplayer.js"></script>
 
-    
-    <script src="script.js"></script>
 </body>
-
 <footer aria-posinset="end">
         <p> Made with &#10084; by Vaishnavi, Riya and Devashree </p>
 </footer>
-
 <style>
 nav{
     position: fixed;

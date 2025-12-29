@@ -3,12 +3,9 @@ let playerScore = 0;
 let computerScore = 0;
 let moves = 0;
 
-function storeValue(choice) {
+function storeValue(choice){
     userChoice = choice;
-
-
     if (moves >= 10) return;
-
     moves++;
     document.getElementById("moves").innerText = "Moves Left: " + (10 - moves);
 
@@ -35,7 +32,7 @@ function storeValue(choice) {
         gameOver();
     }
 
-let result = VSComputer(userChoice, computerChoiceStr)
+result = VSComputer(userChoice, computerChoiceStr)
 document.getElementById("res").innerHTML =  "You chose: " + userChoice.toUpperCase() +
         "<br>Computer chose: " + computerChoiceStr.toUpperCase() +
         "<br><b>" + result + "</b>";

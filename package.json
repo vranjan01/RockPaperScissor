@@ -1,0 +1,24 @@
+{
+  "name": "rockpaperscissor",
+  "version": "1.0.0",
+  "main": "pvp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vranjan01/RockPaperScissor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vranjan01/RockPaperScissor/issues"
+  },
+  "homepage": "https://github.com/vranjan01/RockPaperScissor#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}
