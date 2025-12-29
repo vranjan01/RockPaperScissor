@@ -35,8 +35,7 @@ function storeValue(choice) {
         gameOver();
     }
 
-let result = VSComputer(userChoice, computerChoiceStr)
-document.getElementById("res").innerHTML =  "You chose: " + userChoice.toUpperCase() +
+    document.getElementById("res").innerHTML =  "You chose: " + userChoice.toUpperCase() +
         "<br>Computer chose: " + computerChoiceStr.toUpperCase() +
         "<br><b>" + result + "</b>";
 }
