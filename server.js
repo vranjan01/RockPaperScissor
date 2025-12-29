@@ -13,7 +13,7 @@ let players = {};
 io.on("connection", (socket) => {
     console.log("Player connected:", socket.id);
 
-    players[socket.id] = null;
+    players[socket.id] = true;
     io.emit("players", Object.keys(players).length);
 
     socket.on("choice", (choice) => {
@@ -36,6 +36,7 @@ io.on("connection", (socket) => {
 
     socket.on("disconnect", () => {
         delete players[socket.id];
+        io.emit("players", Object.keys(players).length);
     });
 });
 
