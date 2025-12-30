@@ -8,40 +8,52 @@ const io = new Server(server);
 
 app.use(express.static(__dirname));
 
-let players = {};
+let players = [];
+let choices = {};
 
 io.on("connection", (socket) => {
     console.log("Player connected:", socket.id);
 
-    players[socket.id] = true;
-    io.emit("players", Object.keys(players).length);
+    if (players.length < 2) {
+        players.push(socket.id);
+    }
+
+    io.emit("players", players.length);
 
     socket.on("choice", (choice) => {
-        players[socket.id] = choice;
+        if (!players.includes(socket.id)) return;
 
-        if (Object.keys(players).length === 2) {
-            const [p1, p2] = Object.keys(players);
+        choices[socket.id] = choice;
 
-            const result = decideWinner(players[p1], players[p2]);
+        if (Object.keys(choices).length === 2) {
+            const p1 = players[0];
+            const p2 = players[1];
+
+            const result = decideWinner(choices[p1], choices[p2]);
 
             io.emit("result", {
-                p1Choice: players[p1],
-                p2Choice: players[p2],
+                p1Choice: choices[p1],
+                p2Choice: choices[p2],
                 result
             });
 
-            players = {};
+            // reset for next round
+            choices = {};
         }
     });
 
     socket.on("disconnect", () => {
-        delete players[socket.id];
-        io.emit("players", Object.keys(players).length);
+        console.log("Player disconnected:", socket.id);
+
+        players = players.filter(id => id !== socket.id);
+        delete choices[socket.id];
+
+        io.emit("players", players.length);
     });
 });
 
 function decideWinner(a, b) {
-    if (a === b) return "Tie!";
+    if (a === b) return "It's a Tie!";
     if (
         (a === "rock" && b === "scissor") ||
         (a === "paper" && b === "rock") ||
