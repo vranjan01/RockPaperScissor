@@ -31,8 +31,7 @@ io.on("connection", (socket) => {
 
             const result = decideWinner(choices[p1], choices[p2]);
 
-            const p1 = players[0];
-            const p2 = players[1];
+            
 
 io.to(p1).emit("result", {
     you: choices[p1],
