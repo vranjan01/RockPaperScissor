@@ -78,6 +78,6 @@ function decideWinner(a, b) {
     return "Player 2 Wins!";
 }
 
-server.listen(4000, () => {
-    console.log("Server running at http://localhost:4000");
+server.listen(4000,"0.0.0.0",() => {
+    console.log("Server running at 4000");
 });
