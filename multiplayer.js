@@ -1,5 +1,12 @@
 const socket = io("http://10.165.46.118:4000");
 
+socket.on("full", () => {
+    document.getElementById("status").innerText =
+        "Game is full. Please try again later.";
+});
+
+let hasPlayed = false;
+
 function sendChoice(choice) {
     socket.emit("choice", choice);
 }
