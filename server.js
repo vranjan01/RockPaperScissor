@@ -31,11 +31,27 @@ io.on("connection", (socket) => {
 
             const result = decideWinner(choices[p1], choices[p2]);
 
-            io.emit("result", {
-                p1Choice: choices[p1],
-                p2Choice: choices[p2],
-                result
-            });
+            const p1 = players[0];
+            const p2 = players[1];
+
+io.to(p1).emit("result", {
+    you: choices[p1],
+    opponent: choices[p2],
+    result:
+        result === "Player 1 Wins!" ? "You Win!" :
+        result === "Player 2 Wins!" ? "You Lose!" :
+        "It's a Tie!"
+});
+
+io.to(p2).emit("result", {
+    you: choices[p2],
+    opponent: choices[p1],
+    result:
+        result === "Player 2 Wins!" ? "You Win!" :
+        result === "Player 1 Wins!" ? "You Lose!" :
+        "It's a Tie!"
+});
+
 
             // reset for next round
             choices = {};
