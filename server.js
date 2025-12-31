@@ -2,11 +2,27 @@ const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
 
+const os = require("os");
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
 app.use(express.static(__dirname));
+
+function getLocalIP() {
+    const nets = os.networkInterfaces();
+    for (const name of Object.keys(nets)) {
+        for (const net of nets[name]) {
+            if (net.family === "IPv4" && !net.internal) {
+                return net.address;
+            }
+        }
+    }
+    return "localhost";
+}
+
+const PORT = 4000;
 
 let players = [];
 let choices = {};
@@ -75,6 +91,7 @@ function decideWinner(a, b) {
     return "Player 2 Wins!";
 }
 
-server.listen(4000,"0.0.0.0",() => {
-    console.log("Server running at 4000");
+server.listen(PORT, "0.0.0.0", () => {
+    const IP = getLocalIP();
+    console.log(`Server running at http://${IP}:${PORT}`);
 });
