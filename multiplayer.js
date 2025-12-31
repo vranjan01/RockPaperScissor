@@ -6,11 +6,12 @@ function sendChoice(choice) {
 
 socket.on("result", (data) => {
     document.getElementById("res").innerHTML = `
-        You chose: <b>${data.p1Choice.toUpperCase()}</b><br>
-        Opponent chose: <b>${data.p2Choice.toUpperCase()}</b><br><br>
+        You chose: <b>${data.you.toUpperCase()}</b><br>
+        Opponent chose: <b>${data.opponent.toUpperCase()}</b><br><br>
         <b>${data.result}</b>
     `;
 });
+
 
 const statusText = document.getElementById("status");
 
