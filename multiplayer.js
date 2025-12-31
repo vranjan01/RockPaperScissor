@@ -1,4 +1,4 @@
-const socket = io("http://10.165.46.118:4000");
+const socket = io();
 
 socket.on("full", () => {
     document.getElementById("status").innerText =
