@@ -1,4 +1,6 @@
 const socket = io();
+let rematchVotes = 0;
+
 
 socket.on("full", () => {
     document.getElementById("status").innerText =
@@ -17,6 +19,17 @@ socket.on("result", (data) => {
         Opponent chose: <b>${data.opponent.toUpperCase()}</b><br><br>
         <b>${data.result}</b>
     `;
+    document.getElementById("rematchBtn").style.display = "inline-block";
+});
+
+function requestRematch() {
+    socket.emit("rematch");
+}
+
+socket.on("rematchStart", () => {
+    document.getElementById("res").innerHTML = "";
+    document.getElementById("status").innerText = "New round! Make your move.";
+    document.getElementById("rematchBtn").style.display = "none";
 });
 
 

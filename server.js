@@ -30,13 +30,13 @@ let choices = {};
 io.on("connection", (socket) => {
     console.log("Player connected:", socket.id);
 
-    // 🚫 Block extra players
+    //  Block extra players
     if (players.length >= 2) {
         socket.emit("full");
         return;
     }
 
-    // ✅ Allow only first 2 players
+    //  Allow only first 2 players
     players.push(socket.id);
 
     io.emit("players", players.length);
@@ -90,6 +90,9 @@ function decideWinner(a, b) {
     ) return "Player 1 Wins!";
     return "Player 2 Wins!";
 }
+
+
+
 
 server.listen(PORT, "0.0.0.0", () => {
     const IP = getLocalIP();
