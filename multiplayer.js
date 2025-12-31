@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("http://10.165.46.118:4000");
 
 function sendChoice(choice) {
     socket.emit("choice", choice);
