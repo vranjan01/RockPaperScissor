@@ -26,6 +26,8 @@ const PORT = 5000;
 
 let players = [];
 let choices = {};
+let rematchVotes = {};
+
 
 io.on("connection", (socket) => {
     console.log("Player connected:", socket.id);
@@ -73,9 +75,24 @@ io.on("connection", (socket) => {
         }
     });
 
+    socket.on("rematch", () => {
+        if (!players.includes(socket.id)) return;
+
+        rematchVotes[socket.id] = true;
+
+        // if both players voted
+        if (Object.keys(rematchVotes).length === 2) {
+            rematchVotes = {};
+            choices = {};
+
+            io.emit("rematchStart");
+        }
+    });
+
     socket.on("disconnect", () => {
         players = players.filter(id => id !== socket.id);
         delete choices[socket.id];
+        delete rematchVotes[socket.id];
         io.emit("players", players.length);
     });
 });
