@@ -22,7 +22,7 @@ function getLocalIP() {
     return "localhost";
 }
 
-const PORT = 4000;
+const PORT = 5000;
 
 let players = [];
 let choices = {};
